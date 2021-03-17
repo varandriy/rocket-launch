@@ -37,7 +37,7 @@ export default function CustomizedTimeline({ launches, favourites }) {
     <div>
       <Timeline align="alternate">
         {launches.map((launch) => (
-          <TimelineItem onClick={() => history.push(`/launches/${launch.id}`)} key={launch.id}>
+          <TimelineItem >
             <TimelineOppositeContent>
               <Typography variant="body2" color="textSecondary">
                 Launch date: {launch.window_start}
@@ -52,7 +52,7 @@ export default function CustomizedTimeline({ launches, favourites }) {
               <TimelineConnector/>
             </TimelineSeparator>
             <TimelineContent>
-              <Paper elevation={4} className={`item ${classes.paper}`}>
+              <Paper onClick={() => history.push(`/launches/${launch.id}`)} key={launch.id} elevation={4} className={`item ${classes.paper}`}>
                 <img
                   onClick={(e) => {
                     e.stopPropagation();
